@@ -7,6 +7,6 @@ camera = Camera(fig)
 for i in range(20):
     t = plt.plot(range(i, i + 5))
     plt.legend(t, [f'line {i}'])
-    camera.snap()
+    camera.snap() ##xs
 animation = camera.animate()
 animation.save('celluloid_legends.gif', writer = 'imagemagick')
