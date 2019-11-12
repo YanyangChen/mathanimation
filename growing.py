@@ -41,5 +41,5 @@ anim = animation.FuncAnimation(fig, animate, init_func=init,
 							frames=500, interval=20, blit=True) 
 
 # save the animation as mp4 video file 
-anim.save('coil.html',writer='ffmpeg') 
+anim.save('coil.mp4',writer='ffmpeg') 
 # plt.show()

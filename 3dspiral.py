@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import mpl_toolkits.mplot3d.axes3d as p3
+import math
 from IPython.display import HTML
 
 fig = plt.figure()
@@ -10,9 +11,9 @@ ax2 = fig.add_subplot(2, 2, 2)
 ax3 = fig.add_subplot(2, 2, 4)
 
 t = np.linspace(0, 80, 300)
-x = np.cos(2 * np.pi * t / 10.) * t
-y = np.sin(2 * np.pi * t / 10.) * t
-z = 10 * t
+x = np.cos(2 * np.pi * t / 10.) * np.ceil(t/10)*10
+y = np.sin(2 * np.pi * t / 10.) * np.ceil(t/10)*10
+z = 10 * np.ceil(t/10)*10 * (x**2 + y**2)/6400
 
 ax1.set_xlabel('x')
 ax1.set_ylabel('y')
@@ -60,4 +61,4 @@ plt.tight_layout()
 ani = animation.ArtistAnimation(fig, lines, interval=50, blit=True)
 
 fn = 'line_animation_3d_with_two_2d_artistanimation'
-ani.save('%s.htm'%(fn), writer='ffmpeg',fps=1000/50)
+ani.save('%s.mp4'%(fn), writer='ffmpeg',fps=1000/50)
